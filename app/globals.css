@@ -2,22 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/fonts/Open-Sans.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/Raleway.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Dancing Script';
+  src: url('/fonts/Dancing-Script.ttf') format('truetype');
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  --background: #DADBDF;
+  --primary: #2F363D;
+  --secondary: #858585;
+  --accent: #8BAE44;
 }
 
 @layer utilities {
