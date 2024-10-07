@@ -1,5 +1,21 @@
 import type { Metadata } from 'next';
+import { Open_Sans, Raleway, Dancing_Script } from 'next/font/google';
 import './globals.css';
+
+const openSans = Open_Sans({
+  subsets: ['latin'],
+  variable: '--font-open-sans',
+});
+
+const raleway = Raleway({
+  subsets: ['latin'],
+  variable: '--font-raleway',
+});
+
+const dancingScript = Dancing_Script({
+  subsets: ['latin'],
+  variable: '--font-dancing-script',
+});
 
 export const metadata: Metadata = {
   title: 'Delicio',
@@ -39,7 +55,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className='bg-background text-primary antialiased'>{children}</body>
+      <body className={`bg-secondary-900 text-primary-900 ${openSans.variable} ${raleway.variable} ${dancingScript.variable} antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }

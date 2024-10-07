@@ -9,15 +9,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: 'var(--background)',
-        primary: 'var(--primary)',
-        secondary: 'var(--secondary)',
+        primary: {
+          '900': 'var(--primary-900)',
+          '500': 'var(--primary-500)',
+        },
+        secondary: {
+          '900': 'var(--secondary-900)',
+          '500': 'var(--secondary-500)',
+        },
         accent: 'var(--accent)',
       },
       fontFamily: {
-        openSans: ["Open Sans", "sans-serif"],
-        raleway: ["Raleway", "monospace"],
-        dancingScript: ["Dancing Script", "cursive"],
+        openSans: ['var(--font-open-sans)'],
+        raleway: ['var(--font-raleway)'],
+        dancingScript: ['var(--font-dancing-script)'],
       },
     },
   },

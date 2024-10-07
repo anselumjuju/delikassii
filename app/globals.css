@@ -2,25 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'Open Sans';
-  src: url('/fonts/Open-Sans.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Raleway';
-  src: url('/fonts/Raleway.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Dancing Script';
-  src: url('/fonts/Dancing-Script.ttf') format('truetype');
-}
-
 :root {
-  --background: #DADBDF;
-  --primary: #2F363D;
-  --secondary: #858585;
+  --primary-900: #2f363d;
+  --primary-500: #848484;
+  --seconday-900: #dadbdf;
+  --secondary-500: #efefef;
   --accent: #8BAE44;
 }
 
