@@ -5,13 +5,23 @@
 :root {
   --primary-900: #2f363d;
   --primary-500: #848484;
-  --seconday-900: #dadbdf;
-  --secondary-500: #efefef;
+  --secondary-900: #dadbdf;
+  --secondary-500: #f7f7f7;
   --accent: #8BAE44;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .no-scroll-bar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }

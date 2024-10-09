@@ -55,7 +55,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`bg-secondary-900 text-primary-900 ${openSans.variable} ${raleway.variable} ${dancingScript.variable} antialiased`}>
+      <body className={`bg-secondary-500 text-primary-900 ${openSans.variable} ${raleway.variable} ${dancingScript.variable} antialiased`}>
         {children}
       </body>
     </html>
