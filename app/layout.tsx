@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Open_Sans, Raleway, Dancing_Script } from 'next/font/google';
 import './globals.css';
+import ClientProvider from '@/utils/ClientProvider';
+import { Header, Navbar } from '@/components';
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -56,7 +58,13 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`bg-secondary-500 text-primary-900 ${openSans.variable} ${raleway.variable} ${dancingScript.variable} antialiased`}>
-        {children}
+        <div className='w-full max-w-[1700px] p-5 mx-auto overflow-x-hidden space-y-4'>
+          <ClientProvider>
+            <Header />
+            <Navbar />
+            {children}
+          </ClientProvider>
+        </div>
       </body>
     </html>
   );

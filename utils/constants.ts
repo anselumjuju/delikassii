@@ -1,0 +1,35 @@
+export const meals = [
+	{ display_name: 'General', id: 6953045, type: 'cuisine', name: 'indigenous', },
+	{ display_name: 'Breakfast', id: 64483, type: 'meal', name: 'breakfast' },
+	{ display_name: 'Brunch', id: 64484, type: 'occasion', name: 'brunch' },
+	{ display_name: 'Desserts', id: 64485, type: 'meal', name: 'desserts' },
+	{ display_name: 'Lunch', id: 64489, type: 'meal', name: 'lunch' },
+	{ display_name: 'Dinner', id: 64486, type: 'meal', name: 'dinner' },
+	{ display_name: 'Drinks', id: 64487, type: 'meal', name: 'drinks' },
+];
+export const dietaries = [
+	{ display_name: 'Easy', id: 64471, type: 'difficulty', name: 'easy' },
+	{ display_name: 'Eggs', id: 2651754, type: 'business_tags', name: 'one_top_app_eggs' },
+	{ display_name: 'Gluten-Free', id: 64465, type: 'dietary', name: 'gluten-free' },
+	{ display_name: 'Healthy', id: 64466, type: 'dietary', name: 'healthy' },
+	{ display_name: 'Ice Cream Scoop', id: 1247772, type: 'equipment', name: 'ice_cream_scoop' },
+	{ display_name: 'Low-Carb', id: 64467, type: 'dietary', name: 'low_carb' },
+	{ display_name: 'Meat', id: 2651753, type: 'business_tags', name: 'one_top_app_meat' },
+	{ display_name: 'Seafood', id: 64459, type: 'cuisine', name: 'seafood' },
+	{ display_name: 'Vegan', id: 64468, type: 'dietary', name: 'vegan' },
+	{ display_name: 'Veggies', id: 2651756, type: 'business_tags', name: 'one_top_app_veggies' },
+];
+export const cuisines = [
+	{ display_name: 'British', id: 64447, type: 'cuisine', name: 'british' },
+	{ display_name: 'Chinese', id: 64448, type: 'cuisine', name: 'chinese' },
+	{ display_name: 'French', id: 64449, type: 'cuisine', name: 'french' },
+	{ display_name: 'German', id: 64450, type: 'cuisine', name: 'german' },
+	{ display_name: 'Greek', id: 64451, type: 'cuisine', name: 'greek' },
+	{ display_name: 'Indian', id: 64452, type: 'cuisine', name: 'indian' },
+	{ display_name: 'Italian', id: 64453, type: 'cuisine', name: 'italian' },
+	{ display_name: 'Japanese', id: 64454, type: 'cuisine', name: 'japanese' },
+	{ display_name: 'Korean', id: 64455, type: 'cuisine', name: 'korean' },
+	{ display_name: 'Mexican', id: 64457, type: 'cuisine', name: 'mexican' },
+	{ display_name: 'Thai', id: 64460, type: 'cuisine', name: 'thai' },
+	{ display_name: 'Vietnamese', id: 64461, type: 'cuisine', name: 'vietnamese' },
+];
