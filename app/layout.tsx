@@ -58,7 +58,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`bg-secondary-500 text-primary-900 ${openSans.variable} ${raleway.variable} ${dancingScript.variable} antialiased`}>
-        <div className='w-full max-w-[1700px] p-5 mx-auto overflow-x-hidden space-y-4'>
+        <div className='w-full max-w-[1700px] px-2 py-3 lg:px-5 mx-auto overflow-x-hidden space-y-4 font-openSans'>
           <ClientProvider>
             <Header />
             <Navbar />

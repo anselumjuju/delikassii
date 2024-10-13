@@ -12,7 +12,7 @@ const SearchBar = () => {
           <CiSearch size={24} className='hidden lg:block' />
           <input type='text' placeholder='Search any recipes...' className='w-full outline-none bg-transparent' />
         </div>
-        <div className='p-3 bg-accent rounded-md lg:hidden'>
+        <div className='p-3 bg-accent-900 rounded-md lg:hidden'>
           <CiSearch size={24} className='font-black text-white' />
         </div>
       </div>

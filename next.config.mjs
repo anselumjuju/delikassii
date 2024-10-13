@@ -1,7 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	images: {
-		domains: ['img.buzzfeed.com', 's3.amazonaws.com']
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: 'img.buzzfeed.com',
+				pathname: '/**',
+			},
+			{
+				protocol: 'https',
+				hostname: 's3.amazonaws.com',
+				pathname: '/**',
+			}
+		]
 	}
 };
 

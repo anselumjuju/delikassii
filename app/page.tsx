@@ -3,8 +3,7 @@ import Feeds from './(home)/@feeds/page';
 
 export default function Home() {
   return (
-    <div className='w-full py-3 space-y-5'>
-      <h1 className='text-3xl font-bold'>Recommended for you</h1>
+    <div className='w-full  space-y-10'>
       <Recommendations />
       <Feeds />
     </div>

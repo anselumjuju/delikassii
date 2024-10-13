@@ -17,7 +17,10 @@ const config: Config = {
           '900': 'var(--secondary-900)',
           '500': 'var(--secondary-500)',
         },
-        accent: 'var(--accent)',
+        accent: {
+          '900': 'var(--accent-900)',
+          '500': 'var(--accent-500)',
+        },
       },
       fontFamily: {
         openSans: ['var(--font-open-sans)'],
