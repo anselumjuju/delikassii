@@ -21,15 +21,21 @@ const RecipeCard1 = ({ recipe }: { recipe: RecipeCardInterface }) => {
           <p className='w-full font-semibold'>{recipe.name}</p>
           <div className='space-y-2 text-primary-500'>
             <div className='flex items-center justify-start gap-3'>
-              <MdOutlineAvTimer className='text-xl text-accent-900' />
+              <div className='text-xl text-accent-900'>
+                <MdOutlineAvTimer />
+              </div>
               <p>{recipe.cook_time_minutes ? (recipe.cook_time_minutes > 0 ? recipe.cook_time_minutes : 15) : 15}min</p>
             </div>
             <div className='flex items-center justify-start gap-3'>
-              <MdPersonOutline className='text-xl text-accent-900' />
+              <div className='text-xl text-accent-900'>
+                <MdPersonOutline />
+              </div>
               <p>{recipe.num_servings ? (recipe.num_servings > 1 ? `${recipe.num_servings + ' servings'}` : '1 serving') : '1 serving'}</p>
             </div>
             <div className='flex items-center justify-start gap-3'>
-              <MdOutlineBookmarkBorder className='text-xl text-accent-900' />
+              <div className='text-xl text-accent-900'>
+                <MdOutlineBookmarkBorder />
+              </div>
               <p>{recipe.tags ? recipe.tags[0]?.display_name : recipe.name.split(' ')[0]}</p>
             </div>
           </div>

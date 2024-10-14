@@ -2,7 +2,7 @@ import { unstable_cache } from 'next/cache';
 import { fetchFeeds, fetchRecipesList } from '@/utils/api/fetchRecipe';
 import Recommendations from './(home)/Recommendations';
 import Feeds from './(home)/Feeds';
-import { FeedDataInterface } from '@/utils/Interfaces';
+import { FeedDataInterface, RecipeCardInterface } from '@/utils/Interfaces';
 
 const getRecommendedRecipes = unstable_cache(
   async () => {
@@ -17,14 +17,14 @@ const getFeeds = unstable_cache(
     const data = await fetchFeeds({ size: 5 });
 
     const filteredData = {
-      results: data.results.map((result: any) => ({
+      results: data.results.map((result: FeedDataInterface) => ({
         type: result.type,
         name: result.name || '',
         item: result.item || null,
         min_items: result.min_items || 0,
         category: result.category || '',
         items: result.items
-          ? result.items.map((item: any) => ({
+          ? result.items.map((item: RecipeCardInterface) => ({
               id: item.id,
               name: item.name,
               description: item.description,
@@ -41,7 +41,7 @@ const getFeeds = unstable_cache(
                   }
                 : null,
               tags: item.tags
-                ? item.tags.map((tag: any) => ({
+                ? item.tags.map((tag) => ({
                     id: tag.id,
                     name: tag.name,
                     display_name: tag.display_name,
