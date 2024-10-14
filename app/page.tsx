@@ -1,7 +1,6 @@
 import { unstable_cache } from 'next/cache';
 import { fetchFeeds, fetchRecipesList } from '@/utils/api/fetchRecipe';
-import Recommendations from './(home)/Recommendations';
-import Feeds from './(home)/Feeds';
+import { Feeds, Recommendations } from '@/containers';
 import { FeedDataInterface, RecipeCardInterface } from '@/utils/Interfaces';
 
 const getRecommendedRecipes = unstable_cache(
