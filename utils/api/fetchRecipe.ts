@@ -8,8 +8,8 @@ const OPTIONS = {
 	}
 }
 
-export const fetchRecipesList = async ({ tags, size }: { tags?: string[] | null, size?: number }) => {
-	const url = BASE_URL + `/recipes/list?from=0&size=${size ? size : 20}${tags ? `&tags=${tags.join(',')}` : ''}`
+export const fetchRecipesList = async ({ tags, query, size }: { tags?: string[] | null, query?: string, size?: number }) => {
+	const url = BASE_URL + `/recipes/list?from=0&size=${size ? size : 20}${tags ? `&tags=${tags.join(',')}` : ''}${query ? `&q=${encodeURIComponent(query)}` : ''}`
 	try {
 		console.log('***Fetching Recipes List from RapidAPI***')
 		const response = await axios.get(url, OPTIONS)

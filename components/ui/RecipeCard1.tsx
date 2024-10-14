@@ -7,11 +7,17 @@ import Link from 'next/link';
 const RecipeCard1 = ({ recipe }: { recipe: RecipeCardInterface }) => {
   return (
     <Link href={`/recipe/${recipe.id}`} className='w-full'>
-      <div className=' w-[calc(100vw-1rem)] max-w-[350px] lg:w-[400px] rounded-lg overflow-clip bg-white cursor-pointer'>
-        <div className='w-[calc(100vw-1rem)] max-w-[350px] lg:w-[400px] h-[250px] overflow-clip rounded-lg'>
+      <div className='w-full rounded-lg overflow-clip bg-white cursor-pointer'>
+        <div className='w-full h-[250px] overflow-clip rounded-lg'>
           <Image
-            src={recipe.thumbnail_url ? recipe.thumbnail_url : recipe.thumbnail_urls ? recipe.thumbnail_urls[0] : ''}
-            alt={recipe.thumbnail_alt_text!}
+            src={
+              recipe.thumbnail_url
+                ? recipe.thumbnail_url
+                : recipe.thumbnail_urls
+                ? recipe.thumbnail_urls[0]
+                : `https://placehold.co/400?text=${recipe.name.replace(' ', '+')}d&font=raleway`
+            }
+            alt={recipe.thumbnail_alt_text ? recipe.thumbnail_alt_text : recipe.name}
             width={300}
             height={300}
             className='w-full h-full rounded-t-lg object-cover hover:scale-105 transition-all duration-300 ease-in-out'

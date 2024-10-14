@@ -7,11 +7,17 @@ import Link from 'next/link';
 const RecipeCard3 = ({ recipe }: { recipe: RecipeCardInterface }) => {
   return (
     <Link href={`/recipe/${recipe.id}`}>
-      <div className='min-w-[220px] lg:min-w-[270px] h-[270px] lg:h-[310px] cursor-pointer relative overflow-clip rounded-lg flex items-end justify-start'>
+      <div className='min-w-[220px] lg:min-w-[270px] h-[320px] lg:h-[370px] cursor-pointer relative overflow-clip rounded-lg flex items-end justify-start'>
         <div className='w-full h-full absolute -z-10'>
           <div className='w-full h-full absolute bg-gradient-to-t from-black/80 from-10% to-black/10' />
           <Image
-            src={recipe.thumbnail_url ? recipe.thumbnail_url : recipe.thumbnail_urls ? recipe.thumbnail_urls[0] : ''}
+            src={
+              recipe.thumbnail_url
+                ? recipe.thumbnail_url
+                : recipe.thumbnail_urls
+                ? recipe.thumbnail_urls[0]
+                : `https://placehold.co/400?text=${recipe.name.replace(' ', '+')}d&font=raleway`
+            }
             alt={recipe.thumbnail_alt_text ? recipe.thumbnail_alt_text : recipe.name}
             width={300}
             height={300}
@@ -19,7 +25,7 @@ const RecipeCard3 = ({ recipe }: { recipe: RecipeCardInterface }) => {
           />
         </div>
         <div className='w-full py-3 px-1 space-y-2 text-white group/content'>
-          <p className='w-full font-semibold truncate'>{recipe.name}</p>
+          <p className='w-full max-w-[30ch] font-semibold line-clamp-2'>{recipe.name}</p>
           <div className='flex items-center justify-start gap-4 text-secondary-900'>
             <div className='flex items-center justify-start gap-1'>
               <div className='text-xl text-accent-900'>

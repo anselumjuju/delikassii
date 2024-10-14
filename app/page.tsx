@@ -26,33 +26,16 @@ const getFeeds = unstable_cache(
           ? result.items.map((item: RecipeCardInterface) => ({
               id: item.id,
               name: item.name,
-              description: item.description,
               thumbnail_url: item.thumbnail_url || '',
-              thumbnail_urls: item.thumbnail_urls || [],
-              thumbnail_alt_text: item.thumbnail_alt_text || '',
               num_servings: item.num_servings || 0,
               cook_time_minutes: item.cook_time_minutes || 0,
-              nutrition: item.nutrition
-                ? {
-                    calories: item.nutrition.calories || 0,
-                    carbohydrates: item.nutrition.carbohydrates || 0,
-                    protein: item.nutrition.protein || 0,
-                  }
-                : null,
               tags: item.tags
-                ? item.tags.map((tag) => ({
-                    id: tag.id,
-                    name: tag.name,
+                ? item.tags.slice(0, 5).map((tag) => ({
                     display_name: tag.display_name,
-                    parent_tag_name: tag.parent_tag_name || '',
-                    root_tag_name: tag.root_tag_name || '',
-                    type: tag.type,
                   }))
                 : [],
               user_ratings: item.user_ratings
                 ? {
-                    count_positive: item.user_ratings.count_positive || 0,
-                    count_negative: item.user_ratings.count_negative || 0,
                     score: item.user_ratings.score || 0,
                   }
                 : null,

@@ -16,7 +16,11 @@ export default function Recommendations({ recipes }: recipeProps) {
       <div className='w-full flex items-stretch justify-normal gap-4 overflow-auto no-scroll-bar'>
         {recipes &&
           recipes.results.map((item: RecipeCardInterface) => {
-            return <RecipeCard1 recipe={item} key={item.id} />;
+            return (
+              <div key={item.id} className='w-full min-w-[350px] max-w-[450px] md:w-[400px] mx-auto'>
+                <RecipeCard1 recipe={item} />
+              </div>
+            );
           })}
       </div>
     </div>
