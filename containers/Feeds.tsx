@@ -12,12 +12,13 @@ interface feedDataProps {
 const Feeds = ({ feeds }: feedDataProps) => {
   const data: FeedDataInterface[] = feeds.results
     .filter((data: FeedDataInterface) => data.name && Array.isArray(data.items) && data.items.length > 1)
-    .sort((a: FeedDataInterface, b: FeedDataInterface) => (b.items?.length || 0) - (a.items?.length || 0));
+    .sort((a: FeedDataInterface, b: FeedDataInterface) => (b.items?.length || 0) - (a.items?.length || 0))
+    .slice(0, -1);
 
   return (
     <div className='w-full space-y-10'>
       {data &&
-        data.map((recipe, idx) => {
+        data.map((recipe: FeedDataInterface, idx) => {
           const CardComponent = idx % 2 == 0 ? RecipeCard2 : RecipeCard3;
           return (
             <div key={recipe.name} className='space-y-6'>

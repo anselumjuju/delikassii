@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Open_Sans, Raleway, Dancing_Script } from 'next/font/google';
 import './globals.css';
 import ClientProvider from '@/utils/ClientProvider';
-import { Header, Navbar } from '@/components';
+import { Footer, Header, Navbar } from '@/components';
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -63,6 +63,7 @@ export default function RootLayout({
             <Header />
             <Navbar />
             {children}
+            <Footer />
           </ClientProvider>
         </div>
       </body>

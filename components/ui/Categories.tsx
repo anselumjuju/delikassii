@@ -24,10 +24,9 @@ const Categories = () => {
               item.name === selected ? 'bg-primary-900 text-secondary-500' : 'bg-transparent text-primary-900 border-primary-900'
             }`}
             onClick={() => {
-              console.log(item.name);
               router.push(item.name === '' ? '/' : `/recipes/${item.name}`);
             }}>
-            <p className='text-sm'>{item.display_name}</p>
+            <p className='text-sm select-none'>{item.display_name}</p>
           </div>
         );
       })}

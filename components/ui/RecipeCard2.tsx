@@ -10,7 +10,7 @@ const RecipeCard2 = ({ recipe }: { recipe: RecipeCardInterface }) => {
       <div className='w-[220px] lg:w-[270px] cursor-pointer bg-white rounded-lg'>
         <div className='w-[220px] lg:w-[270px] h-[270px] lg:h-[310px] overflow-clip rounded-t-lg'>
           <Image
-            src={recipe.thumbnail_url ? recipe.thumbnail_url : recipe.thumbnail_urls ? recipe.thumbnail_urls[0] : `https://placehold.co/400`}
+            src={recipe.thumbnail_url || recipe.thumbnail_urls[0]}
             alt={recipe.thumbnail_alt_text ? recipe.thumbnail_alt_text : recipe.name}
             width={300}
             height={300}

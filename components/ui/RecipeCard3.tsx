@@ -11,7 +11,7 @@ const RecipeCard3 = ({ recipe }: { recipe: RecipeCardInterface }) => {
         <div className='w-full h-full absolute -z-10'>
           <div className='w-full h-full absolute bg-gradient-to-t from-black/80 from-10% to-black/10' />
           <Image
-            src={recipe.thumbnail_url ? recipe.thumbnail_url : recipe.thumbnail_urls ? recipe.thumbnail_urls[0] : `https://placehold.co/400`}
+            src={recipe.thumbnail_url || recipe.thumbnail_urls[0]}
             alt={recipe.thumbnail_alt_text ? recipe.thumbnail_alt_text : recipe.name}
             width={300}
             height={300}

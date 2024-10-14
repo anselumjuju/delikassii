@@ -19,8 +19,7 @@ export interface FeedDataInterface {
 	item?: object;
 	min_items?: number;
 	category?: string;
-	items?:
-	| {
+	items: {
 		id: number;
 		name: string;
 		thumbnail_url: string;
