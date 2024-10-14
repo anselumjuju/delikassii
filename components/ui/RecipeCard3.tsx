@@ -11,20 +11,14 @@ const RecipeCard3 = ({ recipe }: { recipe: RecipeCardInterface }) => {
         <div className='w-full h-full absolute -z-10'>
           <div className='w-full h-full absolute bg-gradient-to-t from-black/80 from-10% to-black/10' />
           <Image
-            src={
-              recipe.thumbnail_url
-                ? recipe.thumbnail_url
-                : recipe.thumbnail_urls
-                ? recipe.thumbnail_urls[0]
-                : `https://placehold.co/400?text=${recipe.name.replace(' ', '+')}d&font=raleway`
-            }
+            src={recipe.thumbnail_url ? recipe.thumbnail_url : recipe.thumbnail_urls ? recipe.thumbnail_urls[0] : `https://placehold.co/400`}
             alt={recipe.thumbnail_alt_text ? recipe.thumbnail_alt_text : recipe.name}
             width={300}
             height={300}
             className='w-full h-full object-cover group-hover/content:scale-105 transition-all duration-300 ease-in-out'
           />
         </div>
-        <div className='w-full py-3 px-1 space-y-2 text-white group/content'>
+        <div className='w-full p-3 space-y-2 text-white group/content'>
           <p className='w-full max-w-[30ch] font-semibold line-clamp-2'>{recipe.name}</p>
           <div className='flex items-center justify-start gap-4 text-secondary-900'>
             <div className='flex items-center justify-start gap-1'>

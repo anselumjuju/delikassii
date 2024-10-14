@@ -38,7 +38,7 @@ const SearchBar = () => {
             className='w-full outline-none bg-transparent'
           />
         </form>
-        <div className='p-3 bg-accent-900 rounded-md lg:hidden' onClick={handleSearch}>
+        <div className='p-3 bg-accent-900 rounded-md cursor-pointer' onClick={handleSearch}>
           <CiSearch size={24} className='font-black text-white' />
         </div>
       </div>

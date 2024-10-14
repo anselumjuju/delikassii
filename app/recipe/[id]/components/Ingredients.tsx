@@ -34,7 +34,7 @@ const Ingredients = ({ ingredients }: IngredientProps) => {
       </div>
 
       <div className='w-[90%] lg:w-full mx-auto'>
-        <ul className='list-none grid grid-cols-2 lg:grid-cols-1 gap-y-2 md:gap-y-3'>
+        <ul className='list-none grid sm:grid-cols-2 lg:grid-cols-1 gap-y-2 md:gap-y-3'>
           {ingredients.map((ingredient) =>
             ingredient.components.map((component, idx) => (
               <>

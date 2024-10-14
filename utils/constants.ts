@@ -1,5 +1,5 @@
 export const meals = [
-	{ display_name: 'General', id: 6953045, type: 'cuisine', name: 'indigenous', },
+	{ display_name: 'General', id: 6953045, type: 'cuisine', name: '', },
 	{ display_name: 'Breakfast', id: 64483, type: 'meal', name: 'breakfast' },
 	{ display_name: 'Brunch', id: 64484, type: 'occasion', name: 'brunch' },
 	{ display_name: 'Desserts', id: 64485, type: 'meal', name: 'desserts' },

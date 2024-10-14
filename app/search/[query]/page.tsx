@@ -2,6 +2,7 @@ import { RecipeCard1 } from '@/components';
 import { fetchRecipesList } from '@/utils/api/fetchRecipe';
 import { RecipeCardInterface } from '@/utils/Interfaces';
 import { unstable_cache } from 'next/cache';
+import { notFound } from 'next/navigation';
 
 const fetchQuery = unstable_cache(
   async (query: string) => {
@@ -43,16 +44,21 @@ const fetchQuery = unstable_cache(
 
 export default async function SearchPage({ params }: { params: { query: string } }) {
   const data = await fetchQuery(params.query);
+
+  if (data.results.length === 0) notFound();
+
   return (
-    <div className='w-full space-y-5'>
-      <h1 className='text-3xl font-bold capitalize'>{params.query}</h1>
-      <div className='w-full flex items-center justify-start flex-wrap gap-3 gap-y-6'>
-        {data.results.map((result: RecipeCardInterface) => (
-          <div key={result.id} className='w-full min-w-[350px] max-w-[450px] md:w-[400px] mx-auto'>
-            <RecipeCard1 recipe={result} />
-          </div>
-        ))}
+    data && (
+      <div className='w-full space-y-5'>
+        <h1 className='text-3xl font-bold capitalize'>{params.query}</h1>
+        <div className='w-full flex items-center justify-start flex-wrap gap-3 gap-y-6'>
+          {data.results.map((result: RecipeCardInterface) => (
+            <div key={result.id} className='w-full min-w-[350px] max-w-[450px] md:w-[400px] mx-auto'>
+              <RecipeCard1 recipe={result} />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    )
   );
 }

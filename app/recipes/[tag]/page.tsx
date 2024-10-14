@@ -1,9 +1,64 @@
-const Page = ({ params }: { params: { tag: string } }) => {
-  return (
-    <div>
-      <h1>Searching for tag - {params.tag}</h1>
-    </div>
-  );
-};
+import { RecipeCard1 } from '@/components';
+import { fetchRecipesList } from '@/utils/api/fetchRecipe';
+import { RecipeCardInterface } from '@/utils/Interfaces';
+import { unstable_cache } from 'next/cache';
+import { notFound } from 'next/navigation';
 
-export default Page;
+const fetchTag = unstable_cache(
+  async (tag: string) => {
+    const data = await fetchRecipesList({ tags: [tag], size: 20 });
+
+    const filteredData = {
+      results: data.results.map((result: RecipeCardInterface) => ({
+        id: result.id,
+        name: result.name,
+        thumbnail_url: result.thumbnail_url || '',
+        num_servings: result.num_servings || 0,
+        cook_time_minutes: result.cook_time_minutes || 0,
+        tags: result.tags
+          ? result.tags.slice(0, 5).map((tag) => ({
+              display_name: tag.display_name,
+            }))
+          : [],
+        user_ratings: result.user_ratings
+          ? {
+              score: result.user_ratings.score || 0,
+            }
+          : null,
+      })),
+    };
+
+    const dataSize = new TextEncoder().encode(JSON.stringify(filteredData)).length;
+
+    if (dataSize > 2 * 1024 * 1024) {
+      console.log('Data too large to cache, skipping cache');
+      return filteredData;
+    }
+
+    console.log('Caching data');
+    return filteredData;
+  },
+  ['tag-results'],
+  { revalidate: 3600, tags: ['tag-results'] }
+);
+
+export default async function Page({ params }: { params: { tag: string } }) {
+  const data = await fetchTag(params.tag);
+
+  if (data.results.length === 0) notFound();
+
+  return (
+    data && (
+      <div className='w-full space-y-5'>
+        <h1 className='text-3xl font-bold capitalize'>{params.tag}</h1>
+        <div className='w-full flex items-center justify-start flex-wrap gap-3 gap-y-6'>
+          {data.results.map((result: RecipeCardInterface) => (
+            <div key={result.id} className='w-full min-w-[350px] max-w-[450px] md:w-[400px] mx-auto'>
+              <RecipeCard1 recipe={result} />
+            </div>
+          ))}
+        </div>
+      </div>
+    )
+  );
+}
