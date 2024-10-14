@@ -62,12 +62,9 @@ export default async function Home() {
   const [recommendedRecipesData, feedsData] = await Promise.all([getRecommendedRecipes(), getFeeds()]);
 
   return (
-    recommendedRecipesData &&
-    feedsData && (
-      <div className='w-full space-y-10'>
-        <Recommendations recipes={recommendedRecipesData} />
-        <Feeds feeds={feedsData} />
-      </div>
-    )
+    <div className='w-full space-y-10'>
+      <Recommendations recipes={recommendedRecipesData} />
+      <Feeds feeds={feedsData} />
+    </div>
   );
 }
