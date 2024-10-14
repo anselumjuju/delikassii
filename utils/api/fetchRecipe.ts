@@ -13,6 +13,7 @@ export const fetchRecipesList = async ({ tags, size }: { tags?: string[] | null,
 	try {
 		console.log('***Fetching Recipes List from RapidAPI***')
 		const response = await axios.get(url, OPTIONS)
+		console.log('...Data Fetched...')
 		return response.data
 	} catch (error) {
 		console.log(error)
@@ -24,6 +25,7 @@ export const fetchRecipeSimilarities = async ({ id }: { id: number }) => {
 	try {
 		console.log('***Fetching Similar Recipes from RapidAPI***')
 		const response = await axios.get(url, OPTIONS)
+		console.log('...Data Fetched...')
 		return response.data
 	} catch (error) {
 		console.log(error)
@@ -35,6 +37,7 @@ export const fetchRecipeInfo = async ({ id }: { id: number }) => {
 	try {
 		console.log('***Fetching Recipe Info from RapidAPI***')
 		const response = await axios.get(url, OPTIONS)
+		console.log('...Data Fetched...')
 		return response.data
 	} catch (error) {
 		console.log(error)
@@ -48,6 +51,7 @@ export const fetchFeeds = async ({ size = 5, vegetarian = false }: { size?: numb
 	try {
 		console.log('***Fetching Feeds from RapidAPI***')
 		const response = await axios.get(url, OPTIONS)
+		console.log('...Data Fetched...')
 		return response.data
 	} catch (error) {
 		console.log(error)
@@ -59,6 +63,7 @@ export const fetchTips = async ({ size = 10, id }: { size?: number; id: number }
 	try {
 		console.log('***Fetching Tips from RapidAPI***')
 		const response = await axios.get(url, OPTIONS)
+		console.log('...Data Fetched...')
 		return response.data
 	} catch (error) {
 		console.log(error)

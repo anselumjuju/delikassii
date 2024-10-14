@@ -1,7 +1,6 @@
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
 
-const LoadingContainer = () => {
+export default function Loading() {
   return (
     <SkeletonTheme baseColor='#c7c7c7' highlightColor='#d8d8d8'>
       <div className='w-full'>
@@ -26,6 +25,4 @@ const LoadingContainer = () => {
       </div>
     </SkeletonTheme>
   );
-};
-
-export default LoadingContainer;
+}

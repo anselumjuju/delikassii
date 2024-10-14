@@ -46,7 +46,7 @@ const Ingredients = ({ ingredients }: IngredientProps) => {
                   {component.measurements[0].unit.abbreviation || component.measurements[0].unit.name} {` `}
                   {component.ingredient.name}
                 </li>
-                <li className='w-full hidden lg:flex items-center justify-between'>
+                <li className='w-full hidden lg:flex items-center justify-between' key={idx + ingredient.components.length}>
                   <p className='text-base font-medium capitalize'>{component.ingredient.name}</p>
                   <p className='text-base'>
                     {component.measurements[0].quantity} {` `} {component.measurements[0].unit.abbreviation || component.measurements[0].unit.name}
