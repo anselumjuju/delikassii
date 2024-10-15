@@ -49,12 +49,31 @@ export async function generateMetadata({ params }: { params: { tag: string } }) 
     title: `Recipes for ${searchTag} - Delikassii`,
     description: `Explore a variety of delicious recipes for ${searchTag}. Find your next favorite dish today!`,
     openGraph: {
+      url: 'https://Delikassii.vercel.app/',
+      type: 'website',
       title: `Recipes for ${searchTag} - Delikassii`,
       description: `Explore a variety of delicious recipes for ${searchTag}. Find your next favorite dish today!`,
+      siteName: 'Delikassii',
+      images: [
+        {
+          url: 'https://Delikassii.vercel.app/og.png',
+          width: 1200,
+          height: 630,
+        },
+      ],
     },
     twitter: {
+      card: 'summary_large_image',
+      site: 'https://Delikassii.vercel.app/',
       title: `Recipes for ${searchTag} - Delikassii`,
       description: `Explore a variety of delicious recipes for ${searchTag}. Find your next favorite dish today!`,
+      images: [
+        {
+          url: 'https://Delikassii.vercel.app/og.png',
+          width: 1200,
+          height: 630,
+        },
+      ],
     },
   };
 }
