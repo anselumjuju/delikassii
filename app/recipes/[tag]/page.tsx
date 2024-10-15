@@ -48,6 +48,14 @@ export async function generateMetadata({ params }: { params: { tag: string } }) 
   return {
     title: `Recipes for ${searchTag} - Delikassii`,
     description: `Explore a variety of delicious recipes for ${searchTag}. Find your next favorite dish today!`,
+    openGraph: {
+      title: `Recipes for ${searchTag} - Delikassii`,
+      description: `Explore a variety of delicious recipes for ${searchTag}. Find your next favorite dish today!`,
+    },
+    twitter: {
+      title: `Recipes for ${searchTag} - Delikassii`,
+      description: `Explore a variety of delicious recipes for ${searchTag}. Find your next favorite dish today!`,
+    },
   };
 }
 

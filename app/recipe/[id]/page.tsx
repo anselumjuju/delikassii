@@ -39,10 +39,10 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
 
   return {
     title: `${data.name} | Delikassii`,
-    description: data.description || 'Check out this amazing recipe!',
+    description: data.description.length > 120 ? data.description.substring(0, 120) + '...' : data.description || 'Check out this amazing recipe!',
     openGraph: {
       title: `${data.name} | Delikassii`,
-      description: data.description || 'Check out this amazing recipe!',
+      description: data.description.length > 120 ? data.description.substring(0, 120) + '...' : data.description || 'Check out this amazing recipe!',
       images: [
         {
           url: data.thumbnail_url || 'https://placehold.co/400',
@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
     twitter: {
       card: 'summary_large_image',
       title: `${data.name} | Delikassii`,
-      description: data.description || 'Check out this amazing recipe!',
+      description: data.description.length > 120 ? data.description.substring(0, 120) + '...' : data.description || 'Check out this amazing recipe!',
       images: [
         {
           url: data.thumbnail_url || 'https://placehold.co/400',
