@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Delikassii 🍽️
 
-## Getting Started
+Delikassii is a recipe web application built with **Next.js** and **Tailwind CSS**. It allows users to search for recipes, view detailed information about each recipe, and explore a variety of culinary ideas. The app leverages **unstable caching** from Next.js to cache API data efficiently, reducing the number of API calls and speeding up the app's performance.
 
-First, run the development server:
+The recipe data is sourced from the **Tasty API** (via RapidAPI), offering rich recipe information like ingredients, instructions, nutrition, user ratings, and more.
+
+## Features
+
+- 🔍 **Recipe Search**: Find recipes based on a search query.
+- 🥘 **Detailed Recipe View**: See recipe details including ingredients, instructions, nutritional info, and ratings.
+- ⚡ **Unstable Cache**: Uses Next.js unstable cache to store API results, improving performance.
+- 🎨 **Responsive Design**: Built with Tailwind CSS to ensure a sleek and responsive user interface.
+
+## Technologies Used
+
+- **Next.js**: A React framework for building fast, server-side rendered applications.
+- **Tailwind CSS**: A utility-first CSS framework for designing the user interface.
+- **Tasty API**: A recipe API from RapidAPI to fetch recipe data.
+
+## Installation and Setup
+
+To get a local copy of this project up and running, follow these steps:
+
+### Prerequisites
+
+- Node.js (version 16.x or later)
+
+### Installation
+
+1. **Clone the Repository**:
+
+   ```bash
+   git clone https://github.com/juju-anselum/delikassii.git
+   cd delikassii
+   ```
+
+2. **Install Dependencies**:
+
+   ```bash
+   npm install
+   ```
+
+3. **Environment Variables**:
+
+   Create a `.env.local` file in the root of your project and add the following environment variables:
+
+   ```bash
+   RAPID_API_KEY=your_rapidapi_key
+   ```
+
+   Replace `your_rapidapi_key` with the API key from RapidAPI.
+
+4. **Run the Development Server**:
+
+   ```bash
+   npm run dev
+   ```
+
+   This will start the app locally at `http://localhost:3000`.
+
+### Building for Production
+
+To build the app for production, run:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This will create an optimized build in the `.next` directory. You can then start the app in production mode:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Deployment
 
-## Learn More
+Delikassii can be deployed to platforms like **Vercel** or **Netlify**. Here's how you can deploy to Vercel:
 
-To learn more about Next.js, take a look at the following resources:
+1. Push your project to a GitHub repository.
+2. Go to [Vercel](https://vercel.com/), import your repository, and follow the deployment instructions.
+3. Set the required environment variables on Vercel as well.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Search Recipes**: Use the search bar to enter a query (e.g., "chicken", "vegan").
+2. **View Recipe Details**: Click on any recipe card to view detailed information, including ingredients, instructions, and nutritional info.
+3. **Browse by Tags**: Filter recipes by tags like "breakfast", "desserts", etc.
 
-## Deploy on Vercel
+## API
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Tasty API**: This app uses the Tasty API from RapidAPI to fetch recipe data. For more information about the API, visit [RapidAPI - Tasty API](https://rapidapi.com/apidojo/api/tasty).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contributing
+
+If you'd like to contribute to this project, feel free to fork the repository and create a pull request.
+
+## License
+
+This project is licensed under the MIT License.
