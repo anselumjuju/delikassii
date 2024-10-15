@@ -78,6 +78,8 @@ export default async function RecipePage({ params }: { params: { id: string } })
 
   const data: RecipeInfoInterface = await getRecipeInfo(recipeId);
 
+  if (!data?.name) notFound();
+
   return (
     data && (
       <div className='w-full space-y-5 pt-2 md:pt-5'>
