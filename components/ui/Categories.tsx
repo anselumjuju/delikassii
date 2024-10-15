@@ -14,6 +14,8 @@ const Categories = () => {
     setSelected(pathTag ? pathTag : '');
   }, [pathName]);
 
+  if (pathName.includes('/recipe/')) return null;
+
   return (
     <div className='w-full mt-3 lg:mt-0 flex items-center justify-start md:justify-center lg:justify-start gap-3 overflow-x-auto no-scroll-bar'>
       {meals.map((item) => {

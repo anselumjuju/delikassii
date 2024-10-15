@@ -42,6 +42,15 @@ const fetchQuery = unstable_cache(
   { revalidate: 3600, tags: ['search-results'] }
 );
 
+export async function generateMetadata({ params }: { params: { query: string } }) {
+  const searchQuery = params.query;
+
+  return {
+    title: `Recipes for ${searchQuery} - Delikassii`,
+    description: `Explore a variety of delicious recipes for ${searchQuery}. Find your next favorite dish today!`,
+  };
+}
+
 export default async function SearchPage({ params }: { params: { query: string } }) {
   const data = await fetchQuery(params.query);
 

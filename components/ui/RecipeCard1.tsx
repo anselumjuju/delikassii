@@ -1,4 +1,3 @@
-'use client';
 import { MdOutlineBookmarkBorder, MdOutlineAvTimer, MdPersonOutline } from 'react-icons/md';
 import { RecipeCardInterface } from '@/utils/Interfaces';
 import Image from 'next/image';

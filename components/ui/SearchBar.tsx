@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { CiSearch } from 'react-icons/ci';
 
@@ -8,6 +8,10 @@ const SearchBar = () => {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [error, setError] = useState<boolean>(false);
+
+  const pathName = usePathname();
+
+  if (pathName.includes('/recipe/')) return null;
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();

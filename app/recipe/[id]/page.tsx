@@ -21,13 +21,54 @@ const getRecipeInfo = unstable_cache(
   { revalidate: 3600, tags: [`recipe`] }
 );
 
+export async function generateMetadata({ params }: { params: { id: string } }) {
+  const recipeId = Number(params.id);
+  if (isNaN(recipeId))
+    return {
+      title: 'Recipe Not Found',
+      description: 'The recipe you are looking for could not be found.',
+    };
+
+  const data: RecipeInfoInterface = await getRecipeInfo(recipeId);
+
+  if (!data)
+    return {
+      title: 'Recipe Not Found',
+      description: 'The recipe you are looking for could not be found.',
+    };
+
+  return {
+    title: `${data.name} | Delikassii`,
+    description: data.description || 'Check out this amazing recipe!',
+    openGraph: {
+      title: `${data.name} | Delikassii`,
+      description: data.description || 'Check out this amazing recipe!',
+      images: [
+        {
+          url: data.thumbnail_url || 'https://placehold.co/400',
+          alt: data.thumbnail_alt_text || data.name,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${data.name} | Delikassii`,
+      description: data.description || 'Check out this amazing recipe!',
+      images: [
+        {
+          url: data.thumbnail_url || 'https://placehold.co/400',
+          alt: data.thumbnail_alt_text || data.name,
+        },
+      ],
+    },
+  };
+}
+
 export default async function RecipePage({ params }: { params: { id: string } }) {
   const recipeId = Number(params.id);
 
-  if (isNaN(recipeId)) {
-    console.log('Triggering NotFound');
-    notFound();
-  }
+  if (isNaN(recipeId)) notFound();
+
   const formatDate = (date: number) => {
     const data = new Date(date * 1000);
     const month = data.toLocaleString('default', { month: 'long' });

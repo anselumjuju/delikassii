@@ -42,6 +42,15 @@ const fetchTag = unstable_cache(
   { revalidate: 3600, tags: ['tag-results'] }
 );
 
+export async function generateMetadata({ params }: { params: { tag: string } }) {
+  const searchTag = params.tag;
+
+  return {
+    title: `Recipes for ${searchTag} - Delikassii`,
+    description: `Explore a variety of delicious recipes for ${searchTag}. Find your next favorite dish today!`,
+  };
+}
+
 export default async function Page({ params }: { params: { tag: string } }) {
   const data = await fetchTag(params.tag);
 

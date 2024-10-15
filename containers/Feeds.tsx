@@ -1,5 +1,3 @@
-'use client';
-
 import { RecipeCard2, RecipeCard3 } from '@/components';
 import { FeedDataInterface } from '@/utils/Interfaces';
 

@@ -20,16 +20,17 @@ const dancingScript = Dancing_Script({
 });
 
 export const metadata: Metadata = {
-  title: 'Delicio',
-  description: 'Delicio is a delicious recipe app, that recommends recipes based on preferences.',
+  title: 'Delikassii',
+  description: 'Find and explore delicious recipes with detailed instructions, nutrition info, and user ratings.',
   openGraph: {
-    url: 'https://delicioo.vercel.app/',
+    url: 'https://Delikassii.vercel.app/',
     type: 'website',
-    title: 'Delicio',
-    description: 'Delicio is a delicious recipe app, that recommends recipes based on preferences.',
+    title: 'Delikassii',
+    description: 'Find and explore delicious recipes with detailed instructions, nutrition info, and user ratings.',
+    siteName: 'Delikassii',
     images: [
       {
-        url: 'https://delicioo.vercel.app/og.png',
+        url: 'https://Delikassii.vercel.app/og.png',
         width: 1200,
         height: 630,
       },
@@ -37,12 +38,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    site: 'https://delicioo.vercel.app/',
-    title: 'Delicio',
-    description: 'Delicio is a delicious recipe app, that recommends recipes based on preferences.',
+    site: 'https://Delikassii.vercel.app/',
+    title: 'Delikassii',
+    description: 'Find and explore delicious recipes with detailed instructions, nutrition info, and user ratings.',
     images: [
       {
-        url: 'https://delicioo.vercel.app/og.png',
+        url: 'https://Delikassii.vercel.app/og.png',
         width: 1200,
         height: 630,
       },
