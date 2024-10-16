@@ -1,13 +1,30 @@
 'use client';
 
-import { meals } from '@/utils/constants';
+import { NavbarCategories } from '@/utils/constants';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+
+interface categorieInterface {
+  display_name: string;
+  id: number;
+  type: string;
+  name: string;
+}
+
+const getRandomCategories = (categories: categorieInterface[], count: number) => {
+  const shuffled = [...categories].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count);
+};
 
 const Categories = () => {
   const pathName = usePathname();
   const router = useRouter();
   const [selected, setSelected] = useState('');
+  const [randomCategories, setRandomCategories] = useState<categorieInterface[] | null>();
+
+  useEffect(() => {
+    setRandomCategories([{ display_name: 'General', id: 6953045, type: 'cuisine', name: '' }, ...getRandomCategories(NavbarCategories, 7)]);
+  }, []);
 
   useEffect(() => {
     const pathTag = pathName.split('/')[2];
@@ -18,7 +35,7 @@ const Categories = () => {
 
   return (
     <div className='w-full mt-3 lg:mt-0 flex items-center justify-start md:justify-center lg:justify-start gap-3 overflow-x-auto no-scroll-bar'>
-      {meals.map((item) => {
+      {randomCategories?.map((item) => {
         return (
           <div
             key={item.id}

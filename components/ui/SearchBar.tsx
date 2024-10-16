@@ -28,7 +28,6 @@ const SearchBar = () => {
   return (
     <div className='w-full md:max-w-lg'>
       <div className='flex flex-col gap-3 md:text-center lg:hidden'>
-        <p className='text-xl font-medium'>Hi, Chriz!👋</p>
         <p className='text-2xl font-bold'>Got a tasty dish in mind?</p>
       </div>
       <div className='w-full mt-3 lg:mt-0 flex gap-3 items-center'>
