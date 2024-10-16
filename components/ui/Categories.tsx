@@ -45,7 +45,7 @@ const Categories = () => {
             onClick={() => {
               router.push(item.name === '' ? '/' : `/recipes/${item.name}`);
             }}>
-            <p className='text-sm select-none'>{item.display_name}</p>
+            <p className='text-sm select-none text-nowrap'>{item.display_name}</p>
           </div>
         );
       })}

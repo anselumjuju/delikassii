@@ -2,7 +2,7 @@ import { Logo } from '@/components';
 
 const Header = () => {
   return (
-    <div className='w-full  flex items-center justify-between'>
+    <div className='w-full pt-3 flex items-center justify-between'>
       <Logo />
       <div className='flex items-center gap-3'>
         {/* <p className='text-lg font-medium hidden lg:block'>Hi, Chriz!👋</p>

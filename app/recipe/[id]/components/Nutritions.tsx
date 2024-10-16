@@ -33,7 +33,7 @@ const Nutritions = ({ nutrition, num_servings, cook_time_minutes, user_ratings }
       </div>
       <div className='flex items-center justify-start gap-1 lg:gap-3'>
         <AiOutlineFire className='text-xl' />
-        <p className='text-sm md:text-base text-nowrap'>{nutrition.calories} cal</p>
+        <p className='text-sm md:text-base text-nowrap'>{nutrition.calories ? Math.round(nutrition.calories) : 25} cal</p>
       </div>
       <div className='items-center justify-start gap-1 ml-auto hidden'>
         <TiStarFullOutline className='text-2xl text-yellow-500' />
