@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Open_Sans, Raleway, Dancing_Script } from 'next/font/google';
 import './globals.css';
 import { Footer, Header, Navbar } from '@/components';
+import { Analytics } from '@vercel/analytics/react';
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -65,6 +66,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </div>
+        <Analytics />
       </body>
     </html>
   );
