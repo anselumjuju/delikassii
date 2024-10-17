@@ -33,3 +33,21 @@ export const cuisines = [
 	{ display_name: 'Thai', id: 64460, type: 'cuisine', name: 'thai' },
 	{ display_name: 'Vietnamese', id: 64461, type: 'cuisine', name: 'vietnamese' },
 ];
+
+export const prefCategories = [
+	{ display_name: 'General', id: 6953045, type: 'cuisine', name: 'easy', },
+	{ display_name: 'Desserts', id: 64485, type: 'meal', name: 'desserts' },
+	{ display_name: 'Drinks', id: 64487, type: 'meal', name: 'drinks' },
+	{ display_name: 'Eggs', id: 2651754, type: 'business_tags', name: 'one_top_app_eggs' },
+	{ display_name: 'Gluten-Free', id: 64465, type: 'dietary', name: 'gluten-free' },
+	{ display_name: 'Healthy', id: 64466, type: 'dietary', name: 'healthy' },
+	{ display_name: 'Meat', id: 2651753, type: 'business_tags', name: 'one_top_app_meat' },
+	{ display_name: 'Seafood', id: 64459, type: 'cuisine', name: 'seafood' },
+	{ display_name: 'Veggies', id: 2651756, type: 'business_tags', name: 'one_top_app_veggies' },
+	{ display_name: 'Chinese', id: 64448, type: 'cuisine', name: 'chinese' },
+	{ display_name: 'French', id: 64449, type: 'cuisine', name: 'french' },
+	{ display_name: 'Indian', id: 64452, type: 'cuisine', name: 'indian' },
+	{ display_name: 'Italian', id: 64453, type: 'cuisine', name: 'italian' },
+	{ display_name: 'Japanese', id: 64454, type: 'cuisine', name: 'japanese' },
+	{ display_name: 'Thai', id: 64460, type: 'cuisine', name: 'thai' },
+]

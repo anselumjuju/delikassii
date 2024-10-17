@@ -59,12 +59,12 @@ const getFeeds = unstable_cache(
 );
 
 export default async function Home() {
-  // const [recommendedRecipesData, feedsData] = await Promise.all([getRecommendedRecipes(), getFeeds()]);
+  const [recommendedRecipesData, feedsData] = await Promise.all([getRecommendedRecipes(), getFeeds()]);
 
   return (
     <div className='w-full space-y-10'>
-      {/* <Recommendations recipes={recommendedRecipesData} />
-      <Feeds feeds={feedsData} /> */}
+      <Recommendations recipes={recommendedRecipesData} />
+      <Feeds feeds={feedsData} />
       <h1>Hello</h1>
     </div>
   );

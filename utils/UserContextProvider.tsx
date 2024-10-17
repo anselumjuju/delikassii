@@ -5,17 +5,15 @@ import { createContext, useContext, useEffect, useState } from 'react';
 interface UserPref {
   name: string;
   photoUrl: string;
-  pref: object[];
-  updatePreferences: (newPref: object[]) => void;
-  updateUserDetails: (name: string, photoUrl: string) => void;
+  pref: string[];
+  updateStorage: (newDetails: Partial<UserPref>) => void;
 }
 
 const defaultUserPref: UserPref = {
-  name: '',
+  name: 'Chriz',
   photoUrl: '',
   pref: [],
-  updatePreferences: () => {},
-  updateUserDetails: () => {},
+  updateStorage: () => {},
 };
 
 const UserContext = createContext<UserPref>(defaultUserPref);
@@ -26,24 +24,28 @@ export const UserContextProvider = ({ children }: { children: React.ReactNode })
   useEffect(() => {
     const storedPref = localStorage.getItem('userPreferences');
     if (storedPref) {
-      const parsedPref: UserPref = JSON.parse(storedPref);
-      setUserPref(parsedPref);
+      try {
+        const parsedPref: Partial<UserPref> = JSON.parse(storedPref);
+        const updatedPref: UserPref = {
+          name: parsedPref.name || 'Chriz',
+          photoUrl: parsedPref.photoUrl || 'https://i.pravatar.cc/150?img=11',
+          pref: parsedPref.pref || [],
+          updateStorage: userPref.updateStorage,
+        };
+        setUserPref(updatedPref);
+      } catch (error) {
+        console.error('Error parsing user preferences:', error);
+      }
     }
   }, []);
 
-  const updatePreferences = (newPref: object[]) => {
-    const updatedPref = { ...userPref, pref: newPref };
-    setUserPref(updatedPref);
-    localStorage.setItem('userPreferences', JSON.stringify(updatedPref));
-  };
-
-  const updateUserDetails = (name: string, photoUrl: string) => {
-    const updatedDetails = { ...userPref, name, photoUrl };
-    setUserPref(updatedDetails);
+  const updateStorage = ({ name, photoUrl, pref }: Partial<UserPref>) => {
+    const updatedDetails = { name, photoUrl, pref };
+    setUserPref(updatedDetails as UserPref);
     localStorage.setItem('userPreferences', JSON.stringify(updatedDetails));
   };
 
-  return <UserContext.Provider value={{ ...userPref, updatePreferences, updateUserDetails }}>{children}</UserContext.Provider>;
+  return <UserContext.Provider value={{ ...userPref, updateStorage }}>{children}</UserContext.Provider>;
 };
 
 export const useUserContext = () => useContext(UserContext);

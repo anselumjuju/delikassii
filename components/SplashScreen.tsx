@@ -1,7 +1,7 @@
 import { aiBurgerImage, burgerImage, CurvedLogo } from '@/public';
 import Image from 'next/image';
 
-const SplashScreen = () => {
+const SplashScreen = ({ onClick }: { onClick: () => void }) => {
   return (
     <div className='w-full h-screen py-5 px-2 flex items-stretch justify-center'>
       <div className='w-full h-full hidden lg:block rounded-lg overflow-hidden'>
@@ -23,7 +23,9 @@ const SplashScreen = () => {
               Delight in our crispy, golden fries served with savory dips for the ultimate snacking experience.
             </p>
           </div>
-          <button className='w-full rounded-md px-4 py-3 bg-accent-900 text-secondary-500 text-base font-semibold'>Continue</button>
+          <button className='w-full rounded-md px-4 py-3 bg-accent-900 text-secondary-500 text-base font-semibold cursor-pointer' onClick={onClick}>
+            Continue
+          </button>
         </div>
       </div>
     </div>

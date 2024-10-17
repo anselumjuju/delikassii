@@ -19,6 +19,10 @@ const nextConfig = {
 				protocol: 'https',
 				hostname: 'via.placeholder.com',
 				pathname: '/**',
+			}, {
+				protocol: 'https',
+				hostname: 'i.pravatar.cc',
+				pathname: '/**',
 			}
 		]
 	}

@@ -64,16 +64,18 @@ export default function RootLayout({
   return (
     <html lang='en' className='bg-secondary-500 text-primary-900'>
       <body
-        className={`w-full max-w-[1700px] min-h-screen mx-auto overflow-x-hidden  ${openSans.variable} ${raleway.variable} ${dancingScript.variable} antialiased font-openSans`}>
+        className={`w-full max-w-[1700px] min-h-screen mx-auto overflow-x-hidden ${openSans.variable} ${raleway.variable} ${dancingScript.variable} antialiased font-openSans`}>
         <NextUIProvider>
           <AppRouterCacheProvider>
             <ThemeProvider theme={theme}>
               <UserContextProvider>
                 <OnBoardingWrapper>
-                  <Header />
-                  <Navbar />
-                  {children}
-                  <Footer />
+                  <div className='w-full space-y-6'>
+                    <Header />
+                    <Navbar />
+                    {children}
+                    <Footer />
+                  </div>
                 </OnBoardingWrapper>
               </UserContextProvider>
             </ThemeProvider>
