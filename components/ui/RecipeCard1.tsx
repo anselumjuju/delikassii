@@ -17,7 +17,7 @@ const RecipeCard1 = ({ recipe }: { recipe: RecipeCardInterface }) => {
           />
         </div>
         <div className='w-full p-3 space-y-3'>
-          <p className='w-full font-semibold'>{recipe.name}</p>
+          <p className='w-full font-semibold truncate'>{recipe.name}</p>
           <div className='space-y-2 text-primary-500'>
             <div className='flex items-center justify-start gap-3'>
               <div className='text-xl text-accent-900'>
