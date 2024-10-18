@@ -54,7 +54,7 @@ const Preferences = ({ isModaL = false, onModalClose = () => {} }: { isModaL?: b
       </div>
 
       <div className='w-full h-full flex items-center'>
-        <div className='w-full max-w-[500px] h-full max-h-[1100px] mx-auto flex flex-col items-center justify-around lg:justify-evenly gap-5'>
+        <div className='w-full max-w-[500px] h-full max-h-[1100px] mx-auto flex flex-col items-center justify-around lg:justify-evenly gap-5 overflow-y-auto'>
           <h1 className='text-4xl font-semibold font-raleway tracking-wide'>
             Profile <span className='-mx-1 text-accent-900 italic font-bold font-dancingScript text-2xl'>&</span> Preferences
           </h1>
