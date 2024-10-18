@@ -68,9 +68,7 @@ export const fetchRecipeInfo = async ({ id }: { id: number }) => {
 }
 
 export const fetchFeeds = async ({ size = 5, vegetarian = false }: { size?: number; vegetarian?: boolean }) => {
-	const offset = new Date().getTimezoneOffset();
-	const timeZone = `${offset <= 0 ? '+' : '-'}${String(Math.abs(Math.floor(offset / 60))).padStart(2, '0')}${String(Math.abs(offset % 60)).padStart(2, '0')}`;
-	const url = BASE_URL + `/feeds/list?size=${size}&timezone=${encodeURIComponent(timeZone)}&vegetarian=${vegetarian}&from=0`;
+	const url = BASE_URL + `/feeds/list?size=${size}&timezone=%2B0700&vegetarian=${vegetarian}&from=0`;
 	try {
 		console.log('***Fetching Feeds from RapidAPI***')
 		const response = await axios.get(url, OPTIONS)
