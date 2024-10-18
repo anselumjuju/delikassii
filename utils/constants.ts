@@ -66,7 +66,6 @@ export const NavbarCategories = [
 ];
 
 export const prefCategories = [
-	{ display_name: 'General', id: 6953045, type: 'cuisine', name: 'easy', },
 	{ display_name: 'Desserts', id: 64485, type: 'meal', name: 'desserts' },
 	{ display_name: 'Drinks', id: 64487, type: 'meal', name: 'drinks' },
 	{ display_name: 'Eggs', id: 2651754, type: 'business_tags', name: 'one_top_app_eggs' },

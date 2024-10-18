@@ -9,7 +9,7 @@ const OnBoarding = () => {
   useEffect(() => {
     setTimeout(() => {
       setIsPrefPage(true);
-    }, 2000);
+    }, 1000);
   }, []);
 
   return <div className='w-full h-screen overflow-hidden flex items-center justify-center'>{isPrefPage ? <Preferences /> : <SplashScreen />}</div>;
