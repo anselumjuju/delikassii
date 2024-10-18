@@ -2,6 +2,7 @@ import { unstable_cache } from 'next/cache';
 import { fetchFeeds, fetchRecipesList } from '@/utils/api/fetchRecipe';
 import { Feeds, Recommendations } from '@/containers';
 import { FeedDataInterface, RecipeCardInterface } from '@/utils/Interfaces';
+import { BasedOnPref } from '@/components';
 
 const getRecommendedRecipes = unstable_cache(
   async () => {
@@ -64,6 +65,7 @@ export default async function Home() {
   return (
     <div className='w-full space-y-10'>
       <Recommendations recipes={recommendedRecipesData} />
+      <BasedOnPref />
       <Feeds feeds={feedsData} />
       <h1>Hello</h1>
     </div>

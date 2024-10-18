@@ -1,5 +1,6 @@
 import axios from "axios"
 
+const API_KEY = process.env.NEXT_PUBLIC_RAPID_API_KEY
 const BASE_URL = 'https://tasty.p.rapidapi.com'
 const OPTIONS = {
 	headers: {
@@ -9,7 +10,8 @@ const OPTIONS = {
 }
 
 export const fetchRecipesList = async ({ tags, query, size }: { tags?: string[] | null, query?: string, size?: number }) => {
-	const url = BASE_URL + `/recipes/list?from=0&size=${size ? size : 20}${tags ? `&tags=${tags.join(',')}` : ''}${query ? `&q=${encodeURIComponent(query)}` : ''}`
+	const tagString = tags ? encodeURIComponent(tags.join(',')) : ''
+	const url = BASE_URL + `/recipes/list?from=0&size=${size ? size : 20}${tags ? `&tags=${tagString}` : ''}${query ? `&q=${encodeURIComponent(query)}` : ''}`
 	try {
 		console.log('***Fetching Recipes List from RapidAPI***')
 		const response = await axios.get(url, OPTIONS)
@@ -19,6 +21,27 @@ export const fetchRecipesList = async ({ tags, query, size }: { tags?: string[] 
 		console.log(error)
 	}
 }
+
+
+export const fetchPreferredRecipes = async ({ tags, query, size }: { tags?: string[] | null, query?: string, size?: number }) => {
+	const tagString = tags ? encodeURIComponent(tags.join(',')) : ''
+	const url = BASE_URL + `/recipes/list?from=0&size=${size ? size : 20}${tags ? `&tags=${tagString}` : ''}${query ? `&q=${encodeURIComponent(query)}` : ''}`
+	try {
+		console.log('***Fetching Preferred Recipes List from RapidAPI***')
+		const response = await axios.get(url, {
+			headers: {
+				"X-RapidAPI-Key": API_KEY,
+				"X-RapidAPI-Host": "tasty.p.rapidapi.com"
+			}
+		})
+		console.log('...Data Fetched...')
+		return response.data
+	} catch (error) {
+		console.log(error)
+	}
+}
+
+
 
 export const fetchRecipeSimilarities = async ({ id }: { id: number }) => {
 	const url = BASE_URL + `/recipes/list-similarities?recipe_id=${id}`

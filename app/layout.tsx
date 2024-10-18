@@ -9,6 +9,7 @@ import { theme } from '@/utils/theme';
 import './globals.css';
 import { OnBoardingWrapper } from '@/utils/OnBoardingWrapper';
 import { UserContextProvider } from '@/utils/UserContextProvider';
+import ClientProvider from '@/utils/ClientProvider';
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -71,12 +72,14 @@ export default function RootLayout({
             <ThemeProvider theme={theme}>
               <UserContextProvider>
                 <OnBoardingWrapper>
-                  <div className='w-full space-y-6'>
-                    <Header />
-                    <Navbar />
-                    {children}
-                    <Footer />
-                  </div>
+                  <ClientProvider>
+                    <div className='w-full space-y-6'>
+                      <Header />
+                      <Navbar />
+                      {children}
+                      <Footer />
+                    </div>
+                  </ClientProvider>
                 </OnBoardingWrapper>
               </UserContextProvider>
             </ThemeProvider>
