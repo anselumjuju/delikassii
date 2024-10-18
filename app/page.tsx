@@ -65,6 +65,7 @@ export default async function Home() {
     <div className='w-full space-y-10'>
       <Recommendations recipes={recommendedRecipesData} />
       <Feeds feeds={feedsData} />
+      <h1>Hello</h1>
     </div>
   );
 }

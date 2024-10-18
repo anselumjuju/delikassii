@@ -1,3 +1,5 @@
+import { Fragment } from 'react';
+
 interface IngredientProps {
   ingredients: {
     components: {
@@ -36,23 +38,22 @@ const Ingredients = ({ ingredients }: IngredientProps) => {
       <div className='w-[90%] lg:w-full mx-auto'>
         <ul className='list-none grid sm:grid-cols-2 lg:grid-cols-1 gap-y-2 md:gap-y-3'>
           {ingredients.map((ingredient) =>
-            ingredient.components.map((component, idx) => (
-              <>
+            ingredient.components.map((component) => (
+              <Fragment key={component.position}>
                 <li
-                  key={idx}
                   className='w-max lg:hidden flex items-center justify-start gap-2 text-sm md:text-base font-normal text-primary-900 
               relative after:contents-[""] after:w-[6px] after:aspect-square after:rounded-full after:bg-accent-900 after:absolute after:top-1/2 after:-left-3 md:after:-left-4 after:-translate-y-1/2'>
                   {component.measurements[0].quantity} {` `}
                   {component.measurements[0].unit.abbreviation || component.measurements[0].unit.name} {` `}
                   {component.ingredient.name}
                 </li>
-                <li className='w-full hidden lg:flex items-center justify-between' key={idx + ingredient.components.length}>
+                <li className='w-full hidden lg:flex items-center justify-between'>
                   <p className='text-base font-medium capitalize'>{component.ingredient.name}</p>
                   <p className='text-base'>
                     {component.measurements[0].quantity} {` `} {component.measurements[0].unit.abbreviation || component.measurements[0].unit.name}
                   </p>
                 </li>
-              </>
+              </Fragment>
             ))
           )}
         </ul>

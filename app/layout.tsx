@@ -1,8 +1,14 @@
 import type { Metadata } from 'next';
-import { Open_Sans, Raleway, Dancing_Script } from 'next/font/google';
-import './globals.css';
+import { NextUIProvider } from '@nextui-org/react';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
+import { Dancing_Script, Open_Sans, Raleway } from 'next/font/google';
+import { ThemeProvider } from '@mui/material';
 import { Footer, Header, Navbar } from '@/components';
 import { Analytics } from '@vercel/analytics/react';
+import { theme } from '@/utils/theme';
+import './globals.css';
+import { OnBoardingWrapper } from '@/utils/OnBoardingWrapper';
+import { UserContextProvider } from '@/utils/UserContextProvider';
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -57,15 +63,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang='en' className='bg-secondary-500 text-primary-900'>
       <body
-        className={`bg-secondary-500 text-primary-900 ${openSans.variable} ${raleway.variable} ${dancingScript.variable} antialiased font-openSans`}>
-        <div className='w-full max-w-[1700px] px-2 py-3 lg:px-5 mx-auto overflow-x-hidden space-y-5'>
-          <Header />
-          <Navbar />
-          {children}
-          <Footer />
-        </div>
+        className={`w-full max-w-[1700px] min-h-screen mx-auto overflow-x-hidden ${openSans.variable} ${raleway.variable} ${dancingScript.variable} antialiased font-openSans`}>
+        <NextUIProvider>
+          <AppRouterCacheProvider>
+            <ThemeProvider theme={theme}>
+              <UserContextProvider>
+                <OnBoardingWrapper>
+                  <div className='w-full space-y-6'>
+                    <Header />
+                    <Navbar />
+                    {children}
+                    <Footer />
+                  </div>
+                </OnBoardingWrapper>
+              </UserContextProvider>
+            </ThemeProvider>
+          </AppRouterCacheProvider>
+        </NextUIProvider>
         <Analytics />
       </body>
     </html>
