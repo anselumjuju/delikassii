@@ -6,10 +6,20 @@ import { BasedOnPref } from '@/components';
 
 const getRecommendedRecipes = unstable_cache(
   async () => {
-    return await fetchRecipesList({ size: 10 });
+    const data = await fetchRecipesList({ size: 10 });
+
+    const dataSize = new TextEncoder().encode(JSON.stringify(data)).length;
+
+    if (dataSize > 2 * 1024 * 1024) {
+      console.log('Data too large to cache, skipping cache');
+      return data;
+    }
+
+    console.log('Caching filtered data');
+    return data;
   },
   ['recommendedRecipes'],
-  { revalidate: 3600, tags: ['recipes'] }
+  { revalidate: 3600, tags: ['recommendedRecipes'] }
 );
 
 const getFeeds = unstable_cache(
