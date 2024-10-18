@@ -77,7 +77,6 @@ export default async function Home() {
       <Recommendations recipes={recommendedRecipesData} />
       <BasedOnPref />
       <Feeds feeds={feedsData} />
-      <h1>Hello</h1>
     </div>
   );
 }

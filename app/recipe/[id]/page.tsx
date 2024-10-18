@@ -82,7 +82,7 @@ export default async function RecipePage({ params }: { params: { id: string } })
 
   return (
     data && (
-      <div className='w-full space-y-5 pt-2 md:pt-5'>
+      <div className='w-full space-y-5 min-h-screen'>
         <VideoPlayer thumbnail_url={data.thumbnail_url} thumbnail_alt_text={data.thumbnail_alt_text} video_url={data.video_url} />
 
         <div className='space-y-1'>

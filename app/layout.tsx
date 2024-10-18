@@ -73,7 +73,7 @@ export default function RootLayout({
               <UserContextProvider>
                 <OnBoardingWrapper>
                   <ClientProvider>
-                    <div className='w-full space-y-6'>
+                    <div className='w-full space-y-3'>
                       <Header />
                       <Navbar />
                       {children}
