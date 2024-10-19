@@ -18,7 +18,7 @@ const getRecipeInfo = unstable_cache(
     return data;
   },
   [`recipe`],
-  { revalidate: 3600, tags: [`recipe`] }
+  { revalidate: 3600 * 24 * 10, tags: [`recipe`] }
 );
 
 export async function generateMetadata({ params }: { params: { id: string } }) {

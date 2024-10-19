@@ -39,7 +39,7 @@ const fetchTag = unstable_cache(
     return filteredData;
   },
   ['tag-results'],
-  { revalidate: 3600, tags: ['tag-results'] }
+  { revalidate: 3600 * 24 * 10, tags: ['tag-results'] }
 );
 
 export async function generateMetadata({ params }: { params: { tag: string } }) {

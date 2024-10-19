@@ -39,7 +39,7 @@ const fetchQuery = unstable_cache(
     return filteredData;
   },
   ['search-results'],
-  { revalidate: 3600, tags: ['search-results'] }
+  { revalidate: 3600 * 24 * 10, tags: ['search-results'] }
 );
 
 export async function generateMetadata({ params }: { params: { query: string } }) {

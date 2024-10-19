@@ -19,7 +19,7 @@ const getRecommendedRecipes = unstable_cache(
     return data;
   },
   ['recommendedRecipes'],
-  { revalidate: 3600, tags: ['recommendedRecipes'] }
+  { revalidate: 3600 * 24 * 10, tags: ['recommendedRecipes'] }
 );
 
 const getFeeds = unstable_cache(
@@ -66,7 +66,7 @@ const getFeeds = unstable_cache(
     return filteredData;
   },
   ['feeds'],
-  { revalidate: 3600, tags: ['feeds'] }
+  { revalidate: 3600 * 24 * 10, tags: ['feeds'] }
 );
 
 export default async function Home() {
