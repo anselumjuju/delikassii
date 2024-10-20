@@ -48,7 +48,7 @@ const Preferences = ({ isModaL = false, onModalClose = () => {} }: { isModaL?: b
   };
 
   return (
-    <div className='w-full h-screen py-5 px-2 flex items-stretch justify-center'>
+    <div className='w-full h-screen py-5 px-2 flex items-stretch justify-center gap-4'>
       <div className='w-full h-full hidden lg:block rounded-lg overflow-hidden'>
         <Image src={aiBurgerImage} alt='Burger' className='w-full h-full object-cover' />
       </div>
@@ -58,7 +58,7 @@ const Preferences = ({ isModaL = false, onModalClose = () => {} }: { isModaL?: b
           <h1 className='text-4xl font-semibold font-raleway tracking-wide'>
             Profile <span className='-mx-1 text-accent-900 italic font-bold font-dancingScript text-2xl'>&</span> Preferences
           </h1>
-          <form className='w-full h-full flex flex-col items-stretch justify-evenly gap-4' onSubmit={handleSubmit}>
+          <form className='w-full h-max flex flex-col items-stretch justify-evenly gap-4' onSubmit={handleSubmit}>
             <div className='w-full h-full flex flex-col items-stretch justify-evenly gap-4'>
               <div className='w-full flex flex-col items-center justify-center gap-5'>
                 <Image
@@ -107,10 +107,10 @@ const Preferences = ({ isModaL = false, onModalClose = () => {} }: { isModaL?: b
                 </CheckboxGroup>
               </div>
             </div>
+            {error && <p className='text-sm text-center text-red-600 -mt-2'>{error}</p>}
             <button type='submit' className='w-full rounded-md px-4 py-3 bg-accent-900 text-secondary-500 text-base font-semibold'>
               Continue
             </button>
-            {error && <p className='text-sm text-center text-red-600 -mt-2'>{error}</p>}
           </form>
         </div>
       </div>

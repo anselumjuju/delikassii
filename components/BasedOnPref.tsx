@@ -21,10 +21,6 @@ const BasedOnPref = () => {
     setUserPref(pref);
   }, [pref]);
 
-  useEffect(() => {
-    console.log('UserPref:', userPref);
-  }, [userPref]);
-
   const {
     data: recipes,
     isLoading,
@@ -41,10 +37,6 @@ const BasedOnPref = () => {
 
   if (isError) {
     console.log(error);
-  }
-
-  if (recipes && !isLoading && !isError) {
-    console.log('recipes', recipes);
   }
 
   return (
