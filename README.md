@@ -30,7 +30,7 @@ To get a local copy of this project up and running, follow these steps:
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/juju-anselum/delikassii.git
+   git clone https://github.com/anselumjuju/delikassii.git
    cd delikassii
    ```
 
