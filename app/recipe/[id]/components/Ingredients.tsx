@@ -32,7 +32,7 @@ const Ingredients = ({ ingredients }: IngredientProps) => {
           <p>Ingredient</p>
           <p>Quantity</p>
         </div>
-        <div className='w-full h-[1px] bg-primary-500' />
+        <div className='w-full h-px bg-primary-500' />
       </div>
 
       <div className='w-[90%] lg:w-full mx-auto'>

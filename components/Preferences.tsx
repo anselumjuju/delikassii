@@ -3,7 +3,7 @@
 import { aiBurgerImage } from '@/public';
 import { prefCategories } from '@/utils/constants';
 import { useUserContext } from '@/utils/UserContextProvider';
-import { Checkbox, CheckboxGroup } from '@nextui-org/react';
+import { Checkbox, CheckboxGroup } from "@heroui/react";
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -80,7 +80,7 @@ const Preferences = ({ isModaL = false, onModalClose = () => {} }: { isModaL?: b
                   placeholder='Enter your name'
                   value={inputName}
                   onChange={(e) => setInputName(e.target.value)}
-                  className='w-full px-3 py-4 bg-transparent rounded-lg border border-primary-500 outline-none'
+                  className='w-full px-3 py-4 bg-transparent rounded-lg border border-primary-500 outline-hidden'
                 />
               </div>
               <div className='w-full flex flex-col items-stretch gap-5'>

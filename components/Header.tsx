@@ -3,7 +3,7 @@
 import { Logo, Preferences } from '@/components';
 import { useUserContext } from '@/utils/UserContextProvider';
 
-import { Avatar, Modal, ModalContent, useDisclosure } from '@nextui-org/react';
+import { Avatar, Modal, ModalContent, useDisclosure } from "@heroui/react";
 
 const Header = () => {
   const { name, photoUrl } = useUserContext();

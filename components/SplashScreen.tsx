@@ -9,7 +9,7 @@ const SplashScreen = () => {
       </div>
 
       <div className='lg:hidden overflow-hidden absolute inset-0 -z-10'>
-        <div className='w-full h-full absolute bg-gradient-to-t from-black to-transparent from-30% md:from-45%' />
+        <div className='w-full h-full absolute bg-linear-to-t from-black to-transparent from-30% md:from-45%' />
         <Image src={aiBurgerImage} alt='Burger' className='w-screen h-full object-cover' />
       </div>
 

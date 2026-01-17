@@ -1,12 +1,13 @@
-import { RecipeCard1 } from '@/components';
-import { fetchRecipesList } from '@/utils/api/fetchRecipe';
-import { RecipeCardInterface } from '@/utils/Interfaces';
-import { unstable_cache } from 'next/cache';
-import { notFound } from 'next/navigation';
+import {RecipeCard1} from '@/components';
+import {fetchRecipesList} from '@/utils/api/fetchRecipe';
+import {RecipeCardInterface} from '@/utils/Interfaces';
+import {Metadata} from 'next';
+import {unstable_cache} from 'next/cache';
+import {notFound} from 'next/navigation';
 
 const fetchQuery = unstable_cache(
   async (query: string) => {
-    const data = await fetchRecipesList({ query: query, size: 20 });
+    const data = await fetchRecipesList({query: query, size: 20});
 
     const filteredData = {
       results: data.results.map((result: RecipeCardInterface) => ({
@@ -15,13 +16,15 @@ const fetchQuery = unstable_cache(
         thumbnail_url: result.thumbnail_url || '',
         num_servings: result.num_servings || 0,
         cook_time_minutes: result.cook_time_minutes || 0,
-        tags: result.tags
-          ? result.tags.slice(0, 5).map((tag) => ({
+        tags:
+          result.tags ?
+            result.tags.slice(0, 5).map((tag) => ({
               display_name: tag.display_name,
             }))
           : [],
-        user_ratings: result.user_ratings
-          ? {
+        user_ratings:
+          result.user_ratings ?
+            {
               score: result.user_ratings.score || 0,
             }
           : null,
@@ -39,10 +42,10 @@ const fetchQuery = unstable_cache(
     return filteredData;
   },
   ['search-results'],
-  { revalidate: 3600 * 24 * 10, tags: ['search-results'] }
+  {revalidate: 3600 * 24 * 10, tags: ['search-results']},
 );
 
-export async function generateMetadata({ params }: { params: { query: string } }) {
+export async function generateMetadata({params}: {params: {query: string}}): Promise<Metadata> {
   const searchQuery = params.query;
 
   return {
@@ -78,7 +81,7 @@ export async function generateMetadata({ params }: { params: { query: string } }
   };
 }
 
-export default async function SearchPage({ params }: { params: { query: string } }) {
+export default async function SearchPage({params}: {params: {query: string}}) {
   const data = await fetchQuery(params.query);
 
   if (data.results.length === 0) notFound();

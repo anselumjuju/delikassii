@@ -1,15 +1,12 @@
 import type { Metadata } from 'next';
-import { NextUIProvider } from '@nextui-org/react';
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
+
 import { Dancing_Script, Open_Sans, Raleway } from 'next/font/google';
-import { ThemeProvider } from '@mui/material';
+
 import { Footer, Header, Navbar } from '@/components';
 import { Analytics } from '@vercel/analytics/react';
 import { theme } from '@/utils/theme';
 import './globals.css';
-import { OnBoardingWrapper } from '@/utils/OnBoardingWrapper';
-import { UserContextProvider } from '@/utils/UserContextProvider';
-import ClientProvider from '@/utils/ClientProvider';
+import Providers from './Providers';
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -65,26 +62,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' className='bg-secondary-500 text-primary-900'>
-      <body
-        className={`w-full max-w-[1700px] min-h-screen mx-auto overflow-x-hidden ${openSans.variable} ${raleway.variable} ${dancingScript.variable} antialiased font-openSans`}>
-        <NextUIProvider>
-          <AppRouterCacheProvider>
-            <ThemeProvider theme={theme}>
-              <UserContextProvider>
-                <OnBoardingWrapper>
-                  <ClientProvider>
-                    <div className='w-full space-y-3'>
-                      <Header />
-                      <Navbar />
-                      {children}
-                      <Footer />
-                    </div>
-                  </ClientProvider>
-                </OnBoardingWrapper>
-              </UserContextProvider>
-            </ThemeProvider>
-          </AppRouterCacheProvider>
-        </NextUIProvider>
+      <body className={`w-full max-w-425 min-h-screen mx-auto overflow-x-hidden ${openSans.variable} ${raleway.variable} ${dancingScript.variable} antialiased font-openSans`}>
+        <Providers>
+          <div className='w-full space-y-3'>
+            <Header />
+            <Navbar />
+            {children}
+            <Footer />
+          </div>
+        </Providers>
         <Analytics />
       </body>
     </html>

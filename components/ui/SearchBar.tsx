@@ -38,7 +38,7 @@ const SearchBar = () => {
             onChange={(e) => setSearchQuery(e.target.value)}
             type='text'
             placeholder='Search any recipes...'
-            className='w-full outline-none bg-transparent'
+            className='w-full outline-hidden bg-transparent'
           />
         </form>
         <div className='p-3 bg-accent-900 rounded-md cursor-pointer' onClick={handleSearch}>
